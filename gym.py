@@ -6,6 +6,7 @@ class Gym:
         elif class_prompt.lower() == "n":
             out_gym(user)
 
+
 def in_gym(user):
     choice = raw_input("Do you want to run on the treadmill? (Y/N) :")
     if choice.lower() == "n":

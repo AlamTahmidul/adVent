@@ -24,7 +24,7 @@ def game():
         if choice.lower() == "gym":
             print("Welcome to the Gym. Let's get hyped.")
             Gym(user_name)
-            #alive = False
+            alive = False
         elif choice.lower() == "restaurant":
             print("You are feeling hungry. Time to eat!")
             Restaurant(user_name)
