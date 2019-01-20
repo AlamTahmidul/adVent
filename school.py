@@ -1,5 +1,10 @@
+# I need a clear function so that the output looks 
 import os
+# I am using the random library to get a random integer generator
 from random import randint
+import time
+
+classes = []
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -14,15 +19,8 @@ class School:
 
 def in_school(user):
     print("You are in school.")
-    # choice = round(randint(1, 2))
-    # # print choice
-    # if choice == 1:
-    #     launch_bully_exe(user)
-    # else:
     launch_school_exe(user)
         
-# def launch_bully_exe(user):
-#     print("Execute bully.exe")
     
 math_lis = [
     "1: Algebra I", 
@@ -37,7 +35,7 @@ math_lis = [
 ]
     
 english_lis = [
-    "1: (AP) Learning to Save People by Kiritsugu Emiya",
+    "1: (AP) Learning to Save People by Kiritsugu Emiya and guest staring Shirou Emiya",
     "2: (AP) Reading Farenheit 451 with Enji Todoroki",
     "3: How to create over 9000 memes and mistakes by Akira Toriyama",
     "4: How to inject memes in original stories to write original stories by Linkuriboh"
@@ -55,80 +53,67 @@ science_lis = [
 ]
 
 def launch_school_exe(user):
-    # print("Execute school.exe")
     clear()
     print("You are a new student at your school. Your guidance counselor asks you to pick your classes.\n")
     math = math_choice()
+    # print math
     english = english_choice()
+    # print english
     social_studies = social_studies_choice()
+    # print social_studies
     science = science_choice()
-    
+    # print science
+    # classes.append(math + english + social_studies + science)
+    clear()
+    print math + english + social_studies + science
+    time.sleep(4)
+
+def class_pick(lis):
+    subject_bool = True
+    choice = 1
+    index = 0
+    bool_2 = True
+    while subject_bool:
+        print("\n".join(sorted(lis)))
+        prompt = raw_input("Choice: ")
+        if int(prompt) >= 1 and int(prompt) <= len(lis):
+            while bool_2:
+                if int(prompt) == int(choice):
+                    print("Added {}".format(lis[index][3:len(lis[index])]))
+                    subject = lis[index][3:len(lis[index])]
+                    subject_bool = False
+                    bool_2 = False
+                choice = choice + 1
+                index = index + 1
+        else:
+            clear()
+            print("Bad input. Type in the corresponding number.")
+    # clear()
+    return subject
 
 def math_choice():
-    print("First up, Math. Pick your math class:")
-    math_bool = True
-    while math_bool:
-        print("\n".join(sorted(math_lis)))
-        prompt = raw_input("Choice: ")
-        if int(prompt) >= 1 and int(prompt) <= len(math_lis):
-            if int(prompt) == 1:
-                print("Added Algebra I")
-                math = "Algebra I"
-                math_bool = False
-            elif int(prompt) == 2:
-                print("Added Geometry")
-                math = "Geometry"
-                math_bool = False
-            elif int(prompt) == 3:
-                print("Added Algebra II/Trigonometry")
-                math = "Algebra II/Trigonometry"
-                math_bool = False
-            elif int(prompt) == 4:
-                print("Added AP Calculus AB")
-                math = "AP Calculus AB"
-                math_bool = False
-            elif int(prompt) == 5:
-                print("Added AP Calculus BC")
-                math = "AP Calculus BC"
-                math_bool = False
-            elif int(prompt) == 6:
-                print("Added AP Hero Academia")
-                math = "AP Hero Academia"
-                math_bool = False
-        else:
-            print("Type in the corresponding number.")
+    print("First up, Math. Pick your math class.")
+    math = class_pick(math_lis)
+    if math[0][0] == "(" and math[0][1] == "A" and math[0][2] == "P" and math[0][3] == ")":
+        print("NICE!")
     return math
             
 def english_choice():
-    print("Next up, English. Pick your English class:")
-    english_bool = True
-    while english_bool:
-        print("\n".join(sorted(english_lis)))
-        prompt = raw_input("Choice: ")
-        if int(prompt) >= 1 and int(prompt) <= len(english_lis):
-            if int(prompt) == 1:
-                print("Added (Regents) English")
-                english = "(Regents) English"
-                english_bool = False
-            elif int(prompt) == 2:
-                print("Added (AP) English")
-                english = "(AP) English"
-                english_bool = False
-            elif int(prompt) == 3:
-                print("Added (AP) Learning to Save People")
-                english = "(AP) Learning to Save People"
-                english_bool = False
-        else:
-            print("Type in the corresponding number.")
+    clear()
+    print("Next up, English. Pick your English class.")
+    english = class_pick(english_lis)
     return english
-    
+
 def social_studies_choice():
-    print()
-    return social_studies
-    
+    clear()
+    print("Next up, Social Studies. Pick your Social Studies class.")
+    ss = class_pick(social_studies_lis)
+    return ss
+
 def science_choice():
-    
-    print()
+    clear()
+    print("Next up, Science. Pick your Science class.")
+    science = class_pick(science_lis)
     return science
             
 def out_school(user):

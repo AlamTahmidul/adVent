@@ -2,7 +2,8 @@ import sys
 import os
 from school import School, clear
 from gym import Gym
-from restaurant import Restaurant
+from hackers import Hacker
+import time
 
 def main():
     game()
@@ -35,34 +36,34 @@ def game():
     |                                                                                                                         |
     |   WARNING: YOU WILL BE HELD RELIABLE FOR ALL YOUR CHOICES. IF YOU ARE NOT A GOOD BOY, PREPARE TO FACE THE CONSEQUENCES. |
     |                                                                                                                         |
-    |                                                                                                                         |
-    |   Type on the console to continue ...                                                                                   |
     |_________________________________________________________________________________________________________________________|
     """)
-    cons = raw_input()
-    if cons.lower() != None:
-        user_name = raw_input("Name: ")
-        while alive:
-            # print("Name: ")
-            clear()
-            print("Hello, " + user_name + ".")
-            print("Where would you like to go today?")
-            print("School / Gym / Restaurant")
-            choice = raw_input("Go To: ")
-        
-            # User Choice
-            if choice.lower() == "school":
-                 print("You are in school.")
-                 School(user_name)
-                #  alive = False
-            if choice.lower() == "gym":
-                print("Welcome to the Gym. Let's get hyped.")
-                Gym(user_name)
-                # alive = False
-            elif choice.lower() == "restaurant":
-                print("You are feeling hungry. Time to eat!")
-                Restaurant(user_name)
-                # alive = False
+    time.sleep(4)
+    user_name = input("Name: ")
+    class_choice = input()
+    print("Hello, " + user_name + ".")
+    while alive:
+        # print("Name: ")
+        clear()
+        print("Where would you like to go today?")
+        choice = raw_input("Go To: ")
+        # User Choice
+        if choice.lower() == "school":
+             print("launching school.exe")
+             time.sleep(3)
+             School(user_name)
+            #  exit()
+             continue
+        if choice.lower() == "gym":
+            print("launching gym.exe")
+            time.sleep(3)
+            Gym(user_name)
+            continue
+        elif choice.lower() == "hacker_space":
+            print("launching hack.exe")
+            time.sleep(3)
+            Hacker(user_name)
+            continue
 
 if __name__ == "__main__":
     main()
