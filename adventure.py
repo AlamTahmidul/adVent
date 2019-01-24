@@ -59,20 +59,13 @@ def game():
     choice = input("> ")
     while True:
         if choice.lower() == "school":
-             print("launching school.exe")
-             time.sleep(3)
-             School(user_name)
-             continue
-        # if choice.lower() == "gym":
-        #     print("launching gym.exe")
-        #     time.sleep(3)
-        #     Gym(user_name)
-        #     continue
+            print("launching school.exe")
+            time.sleep(3)
+            School(user_name)
         elif choice.lower() == "hacker_space" or choice.lower() == "hacker space":
             print("launching hack.exe")
             time.sleep(3)
             Hacker(user_name, role)
-            continue
         elif choice.lower() == "quit":
             print("Play Again?")
             inp = input("> ")
@@ -83,6 +76,7 @@ def game():
                 time.sleep(2)
                 exit(1)
         print("\nGo somewhere else?")
+        choice = input("> ")
 
 
 if __name__ == "__main__":

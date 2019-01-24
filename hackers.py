@@ -41,23 +41,27 @@ def hacker_space(user, role):
         print("This is Team Cr3st. We are a hacker group in search of recruits for our annual cityHack.")
         time.sleep(1)
         inp = input("\nHello, {}. You have been selected to take part into our cityHack assignment. If you wish to continue, install 'salt'.\n".format(user))
-    else:
-        inp = input()
-    if inp.lower() == "python install salt":
-        time.sleep(3)
-        print("Salt imported")
-        time.sleep(2)
-        print(".bin imported")
-        time.sleep(1)
-        print("Welcome to the Game!")
-        launch_hack()
+
+        if inp.lower() == "python install salt":
+            time.sleep(3)
+            print("\nSalt imported")
+            time.sleep(2)
+            print(".bin imported")
+            time.sleep(1)
+            print("Welcome to the Game!")
+            launch_hack()
     else:
         print("Welcome to the HackerSpace.")
 
 
 def launch_hack():
-    print("Okay")
-    # exit()
+    print("Dependencies Installed")
+    ent = input("> ")
+    if ent in "launch ddos.exe ddos hack3d":
+        print("DDOSed. Thank your participating. We will contact you soon of your results.")
+        print("- Team Cr3st.")
+    else:
+        leave()
 
 def leave():
     print("Left HackerSpace.")

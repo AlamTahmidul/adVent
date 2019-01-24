@@ -4,7 +4,7 @@ import time
 
 class School:
     def __init__(self, user):
-        class_prompt = input("Enter School (Y/N): ")
+        class_prompt = input("Enter School (Y/N)\n> ")
         prompt = True
         if class_prompt.lower() == "y":
             in_school(user)
@@ -45,15 +45,15 @@ science_lis = [
 
 def math_choice():
     print("First up, Math. Pick your math class.")
-    math = class_pick(math_lis)
+    mat = class_pick(math_lis)
     time.sleep(1)
-    return math
+    return mat
 
 def english_choice():
     print("\nNext up, English. Pick your English class.")
-    english = class_pick(english_lis)
+    eng = class_pick(english_lis)
     time.sleep(1)
-    return english
+    return eng
 
 def social_studies_choice():
     print("\nNext up, Social Studies. Pick your Social Studies class.")
@@ -63,9 +63,9 @@ def social_studies_choice():
 
 def science_choice():
     print("\nNext up, Science. Pick your Science class.")
-    science = class_pick(science_lis)
+    sci = class_pick(science_lis)
     time.sleep(1)
-    return science
+    return sci
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -76,12 +76,11 @@ def in_school(user):
 
 def launch_school_exe():
     clear()
-    if first_time:
-        print("You are a new student at your school. Your guidance counselor asks you to pick your classes.\n")
-        math = math_choice()
-        english = english_choice()
-        social_studies = social_studies_choice()
-        science = science_choice()
+    print("You are a new student at your school. Your guidance counselor asks you to pick your classes.\n")
+    math = math_choice()
+    english = english_choice()
+    social_studies = social_studies_choice()
+    science = science_choice()
     clear()
     print("""
     Your classes are:
@@ -91,7 +90,7 @@ def launch_school_exe():
     Social Studies: {}
     Science: {}
     """.format(english, math, social_studies, science))
-    time.sleep(3)
+    time.sleep(2)
 
 def class_pick(lis):
     subject_bool = True
@@ -120,9 +119,9 @@ def class_pick(lis):
 
 def out_school(prompt):
     if prompt == True:
-        print("Console error: exit with a return status of 1")
+        print("school.exe: Access Denied.\n\nExiting...")
+        time.sleep(1)
         exit()
     else:
         print("Exiting school.exe")
         time.sleep(1)
-        exit()
