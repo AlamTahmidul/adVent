@@ -1,3 +1,5 @@
+import time
+
 class Gym:
     def __init__(self, user):
         class_prompt = input("Enter Gym (Y/N): ")
@@ -19,6 +21,7 @@ def in_gym(user):
 
 def treadmill(tread_inp, user):
     print("{} was on the treadmill for {} minutes".format(user, tread_inp))
+    time.sleep(1)
 
 def out_gym(user):
     print("Left Gym. {} gets robbed. Type in y to continue.".format(user))
@@ -35,7 +38,10 @@ def out_gym(user):
 
     if class_prompt.lower() == "1":
         print("You ran after him but could not quite catch up to him. Instead, he was hit by a car.")
+        time.sleep(1)
     elif class_prompt.lower() == "2":
         print("Your parents call you pathetic and tell you to man up and solve your own problems.")
+        time.sleep(1)
     elif class_prompt.lower() == "3":
-        print("FREE RAM")
+        print("You got distracted by 'FREE RAM' and was hit by a car.")
+        time.sleep(1)

@@ -46,25 +46,21 @@ science_lis = [
 def math_choice():
     print("First up, Math. Pick your math class.")
     mat = class_pick(math_lis)
-    time.sleep(1)
     return mat
 
 def english_choice():
     print("\nNext up, English. Pick your English class.")
     eng = class_pick(english_lis)
-    time.sleep(1)
     return eng
 
 def social_studies_choice():
     print("\nNext up, Social Studies. Pick your Social Studies class.")
     ss = class_pick(social_studies_lis)
-    time.sleep(1)
     return ss
 
 def science_choice():
     print("\nNext up, Science. Pick your Science class.")
     sci = class_pick(science_lis)
-    time.sleep(1)
     return sci
 
 def clear():
@@ -120,7 +116,6 @@ def class_pick(lis):
 def out_school(prompt):
     if prompt == True:
         print("school.exe: Access Denied.\n\nExiting...")
-        time.sleep(1)
         exit()
     else:
         print("Exiting school.exe")
