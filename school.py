@@ -2,6 +2,8 @@
 import os
 import time
 
+math, science, social_studies, english = "", "", "", ""
+
 class School:
     def __init__(self, user):
         class_prompt = input("Enter School (Y/N)\n> ")
@@ -72,21 +74,35 @@ def in_school(user):
 
 def launch_school_exe():
     clear()
-    print("You are a new student at your school. Your guidance counselor asks you to pick your classes.\n")
-    math = math_choice()
-    english = english_choice()
-    social_studies = social_studies_choice()
-    science = science_choice()
-    clear()
-    print("""
-    Your classes are:
+    global math
+    global english
+    global social_studies
+    global science
+    if not math and not english and not social_studies and not science:
+        print("You are a new student at your school. Your guidance counselor asks you to pick your classes.\n")
+        math = math_choice()
+        english = english_choice()
+        social_studies = social_studies_choice()
+        science = science_choice()
+        print("""
+        Your classes are:
 
-    English: {}
-    Math: {}
-    Social Studies: {}
-    Science: {}
-    """.format(english, math, social_studies, science))
-    time.sleep(2)
+        English: {}
+        Math: {}
+        Social Studies: {}
+        Science: {}
+        """.format(english, math, social_studies, science))
+        time.sleep(2)
+    else:
+        print("""
+        Your classes are:
+
+        English: {}
+        Math: {}
+        Social Studies: {}
+        Science: {}
+        """.format(english, math, social_studies, science))
+        time.sleep(2)
 
 def class_pick(lis):
     subject_bool = True
@@ -103,6 +119,7 @@ def class_pick(lis):
                     subject = lis[index][3:len(lis[index])]
                     subject_bool = False
                     bool_2 = False
+                    return subject
                 choice = choice + 1
                 index = index + 1
             if "AP" in subject:
